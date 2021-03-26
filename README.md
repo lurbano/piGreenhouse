@@ -12,6 +12,7 @@ Using a Raspberry Pi to:
 Standard wiring diagram at: https://www.circuitbasics.com/raspberry-pi-ds18b20-temperature-sensor-tutorial/
 
 Components:
+* [DS18B20](https://www.aliexpress.com/item/32827810300.html) temperature sensor
 * 4.7 k Ohm or 10 K Ohm resistor
 
 Pins:
@@ -21,7 +22,14 @@ Pins:
 * GND: ground
 
 ## Motor
-* 28BYJ-48 Stepper Motor & ULN2003 driver
+Components: 
+* [28BYJ-48 Stepper Motor & ULN2003 driver](https://www.aliexpress.com/item/32869969097.html)
+
+Pins and connection to Motor (I use these specific pins only because they're next to each other and easy for my cable to connect to):
+* GPIO 6: IN1
+* GPIO 13: IN2
+* GPIO 19: IN3
+* GPIO 26: IN4
 
 
 # Software: Set up Raspberry Pi SD Card
@@ -54,7 +62,7 @@ sudo reboot
 # Installing this software: 
 From your home directory clone the github repository.
 ```console
-git clone https://github.com/lurbano/piSensors.git
+git clone https://github.com/lurbano/piGreenhouse.git
 ```
 
 # Setting up Server
@@ -66,7 +74,7 @@ sudo pip3 install tornado
 ```
 
 ### Starting server
-Go to the folder *~/piSensors/webServer/* and run the command
+Go to the folder *~/piGreenhouse/webServer/* and run the command
 ```console
 sudo python3 server.py
 ```
@@ -76,7 +84,7 @@ The webpage will be at the pi's ip address (which should be printed to the scree
 > http://192.168.1.234:8060
 
 ### Starting up on boot
-** IMPORTANT **: the directory with the files needs to be in the pi home directory (e.g. */home/pi/rpi-led-strip*) with this setup. You can change this but be sure to put the full path to the commands. (From: https://learn.sparkfun.com/tutorials/how-to-run-a-raspberry-pi-program-on-startup)
+** IMPORTANT **: the directory with the files needs to be in the pi home directory (e.g. */home/pi/piGreenhouse*) with this setup. You can change this but be sure to put the full path to the commands. (From: https://learn.sparkfun.com/tutorials/how-to-run-a-raspberry-pi-program-on-startup)
 
 EDIT */etc/rc.local* (the easy way)
 ```console
@@ -85,7 +93,7 @@ sudo nano /etc/rc.local
 
 ADD THE LINE (before `exit 0` ).
 ```
-sudo /usr/bin/python3 /home/pi/piSensors/webServer/server.py  2> /home/pi/rpi-led-strip/error.log &
+sudo /usr/bin/python3 /home/pi/piGreenhouse/webServer/server.py  2> /home/pi/rpi-led-strip/error.log &
 ```
 
 Save and exit (Ctrl-S and Ctrl-X) and then restart the Pi from the command line:
@@ -95,7 +103,7 @@ sudo reboot
 
 
 ### If you need to kill the server
-* https://unix.stackexchange.com/questions/104821/how-to-terminate-a-background-process
+* [Ref](https://unix.stackexchange.com/questions/104821/how-to-terminate-a-background-process)
 ```console
 pgrep -a python3
 ```
