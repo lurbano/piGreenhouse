@@ -1,5 +1,6 @@
 import RPi.GPIO as GPIO
 import asyncio
+import time
 
 # Reference: https://ben.akrin.com/?p=9768
 
@@ -84,4 +85,4 @@ class motorU:
         self.rotate(direction="clockwise")  #just because that's my current physical design
 
     async def aCloseWindow(self, direction=True):
-        await self.rotate(direction="clockwise")  #just because that's my current physical design
+        await self.aRotate(direction="clockwise")  #just because that's my current physical design
