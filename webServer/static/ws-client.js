@@ -87,7 +87,7 @@ $(document).ready(function(){
             $("#windowStatus").html(sData.msg + "...");
             $("#windowStatus").css("background-color", "coral");
           }
-          else if (sData.msg == "Open") || sData.msg == "Closed") {
+          else if (sData.msg == "Open" || sData.msg == "Closed") {
             $("#windowStatus").html(sData.msg);
             $("#windowStatus").css("background-color", "lightgreen");
           }
