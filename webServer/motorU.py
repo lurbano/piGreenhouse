@@ -64,7 +64,7 @@ class motorU:
         motor_step_counter = 0
         for i in range(nsteps):
             for pin in range(0, len(self.motor_pins)):
-                GPIO.output( self.motor_pins[pin], step_sequence[motor_step_counter][pin])
+                GPIO.output( self.motor_pins[pin], self.step_sequence[motor_step_counter][pin])
             if direction=="clockwise":
                 motor_step_counter = (motor_step_counter - 1) % 8
             elif direction == "counterClockwise":
