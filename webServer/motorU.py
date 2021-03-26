@@ -40,10 +40,10 @@ class motorU:
 
 
     def cleanup(self):
-        GPIO.output( in1, GPIO.LOW )
-        GPIO.output( in2, GPIO.LOW )
-        GPIO.output( in3, GPIO.LOW )
-        GPIO.output( in4, GPIO.LOW )
+        GPIO.output( self.in1, GPIO.LOW )
+        GPIO.output( self.in2, GPIO.LOW )
+        GPIO.output( self.in3, GPIO.LOW )
+        GPIO.output( self.in4, GPIO.LOW )
         GPIO.cleanup()
 
     def rotate(self, nRotations=1, direction="clockwise"):
