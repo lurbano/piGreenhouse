@@ -148,9 +148,9 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 			# MOTOR (2/3)
 			if msg["what"] == "motor":
 				if msg["action"] == "open":
-					await motor.aOpenWindow()
+					await windowMotor.aOpenWindow()
 				else:
-					await motor.aCloseWindow()
+					await windowMotor.aCloseWindow()
 			# MOTOR (END)
 
 			# LEDs
@@ -236,6 +236,7 @@ if __name__ == "__main__":
 
 
 	except:
+		windowMotor.cleanup()
 		print ("Exception triggered - Tornado Server stopped.")
 
 #End of Program
