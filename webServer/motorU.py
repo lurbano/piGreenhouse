@@ -13,6 +13,8 @@ class motorU:
         self.in3 = in3
         self.in4 = in4
 
+        self.step_sleep = step_sleep
+
         # defining stepper motor sequence (found in documentation http://www.4tronix.co.uk/arduino/Stepper-Motors.php)
         self.step_sequence = [[1,0,0,1],
                  [1,0,0,0],
