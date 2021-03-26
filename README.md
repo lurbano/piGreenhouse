@@ -1,6 +1,7 @@
-# piSensors
-Attaching using a Raspberry Pi as a data logger with different sensors:
-1) DS18B20 temperature sensor using 1Wire
+# piGreenhouse (based off of [piSensor](https://github.com/lurbano/piSensors))
+Using a Raspberry Pi to:
+1) Monitor Temperature: with a DS18B20 temperature sensor using 1Wire
+2) Open and close a vent: using a 28BYJ-48 Stepper Motor & ULN2003 driver
 
 * Author: Lensyl Urbano
 * https://montessorimuddle.org
@@ -18,6 +19,9 @@ Pins:
 ** More details (and how to use other pins for 1Wire): https://pinout.xyz/pinout/1_wire#
 * 3v3: for 3.3V power
 * GND: ground
+
+## Motor
+* 28BYJ-48 Stepper Motor & ULN2003 driver
 
 
 # Software: Set up Raspberry Pi SD Card
