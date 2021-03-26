@@ -83,6 +83,12 @@ Info:<span id="info">Hi</span>
   </div>
 <p>
 
+<!-- Motor (window)-->
+  <div class="item" id="motorBlock">
+    Window: <input type="button" value="Open" id="windowCtrl">
+  </div>
+<!-- Motor (END) -->
+
 <!-- TEMPERATURE SENSOR -->
   <p>
   <input type="button" id="checkSensor" value="Check Temperature">
@@ -96,40 +102,40 @@ Info:<span id="info">Hi</span>
 <input type="number" id="monitorSec" value="1" title="timestep (sec)">sec
 
 <p>
-<div class="sensorBlock">
-  Logging: <input type="checkbox" id="logCheck"><br>
-  <div class="logging" hidden>
-    <input type="button" id="startLog" value="Start Logging">
+  <div class="sensorBlock">
+    Logging: <input type="checkbox" id="logCheck"><br>
+    <div class="logging" hidden>
+      <input type="button" id="startLog" value="Start Logging">
 
-    <div> Log timestep (dt):
-      <input type="number" id="logT_dtMin" min="0" value="0" title="minutes">min,
-      <input type="number" id="logT_dtSec" min="0" value="1" title="seconds">sec,
-      <input type="number" id="logT_dtMil" min="0" value="0" title="millisecs">ms.
+      <div> Log timestep (dt):
+        <input type="number" id="logT_dtMin" min="0" value="0" title="minutes">min,
+        <input type="number" id="logT_dtSec" min="0" value="1" title="seconds">sec,
+        <input type="number" id="logT_dtMil" min="0" value="0" title="millisecs">ms.
+      </div>
+
+      Set End Time: <input id="setEnd" type="checkbox" title="Set time limit to end logging">,
+      <div id="logTimeLimit" hidden> Log Time:
+        <input type="number" id="logT_timeMin" min="0" value="1" class="logEndTime" title="minutes">min
+        <input type="number" id="logT_timeSec"  min="0" value="0" class="logEndTime" title="seconds">sec
+      </div>
+
+
+      <div id="io" class="item">
+        <input type="button" id="getData" value="Get Data">
+        <input type="text" id="saveFileName">
+        <input type="button" id="saveData" value="Save Data To File">
+      </div>
+
+      <div id="countdownT">
+        <div id="timeLeftT" class="timerBar"></div>
+        <div id="countdownData"></div>
+      </div>
+      <p>
+      <div id="logGraph"></div>
+      <p>
+      <div id="logData"></div>
     </div>
-
-    Set End Time: <input id="setEnd" type="checkbox" title="Set time limit to end logging">,
-    <div id="logTimeLimit" hidden> Log Time:
-      <input type="number" id="logT_timeMin" min="0" value="1" class="logEndTime" title="minutes">min
-      <input type="number" id="logT_timeSec"  min="0" value="0" class="logEndTime" title="seconds">sec
-    </div>
-
-
-    <div id="io" class="item">
-      <input type="button" id="getData" value="Get Data">
-      <input type="text" id="saveFileName">
-      <input type="button" id="saveData" value="Save Data To File">
-    </div>
-
-    <div id="countdownT">
-      <div id="timeLeftT" class="timerBar"></div>
-      <div id="countdownData"></div>
-    </div>
-    <p>
-    <div id="logGraph"></div>
-    <p>
-    <div id="logData"></div>
   </div>
-</div>
 <!-- TEMPERATURE SENSOR (END) -->
 
 <br>

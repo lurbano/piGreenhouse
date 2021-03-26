@@ -207,6 +207,23 @@ $(document).ready(function(){
 
   //TEMPERATURE SENSOR (END)
 
+  //MOTOR
+  $("#windowCtrl").click(function(){
+    let msg = {
+      "what": "motor"
+    }
+    if (this.value == "Open"){
+      this.value = "Close";
+      msg["action"] = "open";
+    }
+    else {
+      this.value = "Open";
+      msg["action"] = "close";
+    }
+    ws.send(JSON.stringify(msg));
+  })
+  //MOTOR (END)
+
   //LEDs
   $("#hasLEDs").change(function(){
     let nPix = parseInt($("#nPix").val());

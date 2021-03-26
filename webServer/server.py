@@ -23,8 +23,10 @@ import numpy as np
 #from oledU import *
 from basic import *
 
+# MOTOR (1/3)
 from motorU import *
 windowMotor = motorU()
+# MOTOR (END)
 
 from wsBroadcasterU import *
 wsCast = wsBroadcasterU()
@@ -142,6 +144,14 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 
 
 			# TEMPERATURE SENSOR (END)
+
+			# MOTOR (2/3)
+			if msg["what"] == "motor":
+				if msg["action"] == "open":
+					await motor.aOpenWindow()
+				else:
+					await motor.aCloseWindow()
+			# MOTOR (END)
 
 			# LEDs
 			if msg["what"] == "LEDs":
