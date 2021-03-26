@@ -147,10 +147,19 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 
 			# MOTOR (2/3)
 			if msg["what"] == "motor":
+				m = {"info": "motorStatus"}
 				if msg["action"] == "open":
+					m["msg"] = "Opening"
+					wsCast.write(m);
 					await windowMotor.aOpenWindow()
+					m["msg"] = "Open"
+					wsCast.write(m);
 				else:
+					m["msg"] = "Closing"
+					wsCast.write(m);
 					await windowMotor.aCloseWindow()
+					m["msg"] = "Closed"
+					wsCast.write(m);
 			# MOTOR (END)
 
 			# LEDs

@@ -81,6 +81,20 @@ $(document).ready(function(){
         }
         //TEMPERATURE SENSOR (END)
 
+        //MOTOR
+        if (sData.info == 'motorStatus'){
+          if (sData.msg == "Opening" || sData.msg == "Closing"){
+            $("#windowStatus").html(sData.msg + "...");
+            $("#windowStatus").css("background-color", "coral");
+          }
+          else if (sData.msg == "Open") || sData.msg == "Closed") {
+            $("#windowStatus").html(sData.msg);
+            $("#windowStatus").css("background-color", "lightgreen");
+          }
+        }
+
+        //MOTOR (END)
+
         //LEDs
         // Activate LEDs
         if (sData.info == 'LEDsActive'){
@@ -220,6 +234,7 @@ $(document).ready(function(){
       this.value = "Open";
       msg["action"] = "close";
     }
+
     ws.send(JSON.stringify(msg));
   })
   //MOTOR (END)
