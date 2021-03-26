@@ -86,10 +86,12 @@ $(document).ready(function(){
           if (sData.msg == "Opening" || sData.msg == "Closing"){
             $("#windowStatus").html(sData.msg + "...");
             $("#windowStatus").css("background-color", "coral");
+            document.getElementById("windowCtrl").disabled = true;
           }
           else if (sData.msg == "Open" || sData.msg == "Closed") {
             $("#windowStatus").html(sData.msg);
             $("#windowStatus").css("background-color", "lightgreen");
+            document.getElementById("windowCtrl").disabled = false;
           }
         }
 
