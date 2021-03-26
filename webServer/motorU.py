@@ -73,7 +73,7 @@ class motorU:
             elif direction == "counterClockwise":
                 motor_step_counter = (motor_step_counter + 1) % 8
 
-            asyncio.sleep(self.step_sleep)
+            await asyncio.sleep(self.step_sleep)
 
     def openWindow(self):
         self.rotate(direction="counterClockwise") #just because that's my current physical design
