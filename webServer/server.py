@@ -23,6 +23,9 @@ import numpy as np
 #from oledU import *
 from basic import *
 
+from motorU import *
+windowMotor = motorU()
+
 from wsBroadcasterU import *
 wsCast = wsBroadcasterU()
 

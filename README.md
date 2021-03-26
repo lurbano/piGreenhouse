@@ -22,7 +22,7 @@ Pins:
 * GND: ground
 
 ## Motor
-Components: 
+Components:
 * [28BYJ-48 Stepper Motor & ULN2003 driver](https://www.aliexpress.com/item/32869969097.html)
 
 Pins and connection to Motor (I use these specific pins only because they're next to each other and easy for my cable to connect to):
@@ -59,7 +59,7 @@ sudo reboot
 ```
 
 
-# Installing this software: 
+# Installing this software:
 From your home directory clone the github repository.
 ```console
 git clone https://github.com/lurbano/piGreenhouse.git
@@ -175,3 +175,6 @@ OLED:
 Temperature Sensor: DS18B20
 * https://learn.adafruit.com/adafruits-raspberry-pi-lesson-11-ds18b20-temperature-sensing/ds18b20
 * https://www.circuitbasics.com/raspberry-pi-ds18b20-temperature-sensor-tutorial/
+
+Motor:
+* [Motor control and software](https://ben.akrin.com/?p=9768)
