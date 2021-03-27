@@ -91,11 +91,11 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 
 		# MOTOR
 		if windowMotor:
-			let msg = {
+			m = {
 				"info": "motorTrigT",
 				"T": windowMotor.trigT
 			}
-			self.write_message(msg)
+			self.write_message(m)
 		# MOTOR (END)
 
 		# LEDs
