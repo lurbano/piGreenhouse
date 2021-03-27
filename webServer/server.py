@@ -175,7 +175,7 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 				T = msg["T"]
 				if windowMotor:
 					windowMotor.setTrigT(T)
-					let m = {
+					m = {
 						"info": "motorTrigT",
 						"T": T
 					}
