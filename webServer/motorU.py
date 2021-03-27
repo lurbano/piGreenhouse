@@ -93,4 +93,4 @@ class motorU:
         await self.aRotate(direction="clockwise")  #just because that's my current physical design
 
     def setTrigT(self, T):
-        this.trigT = float(T)
+        self.trigT = float(T)
