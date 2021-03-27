@@ -95,6 +95,10 @@ $(document).ready(function(){
           }
         }
 
+        if (sData.info == 'motorTrigT'){
+          $("#windowTrigTemp").val(sData.T);
+        }
+
         //MOTOR (END)
 
         //LEDs
@@ -239,6 +243,15 @@ $(document).ready(function(){
 
     ws.send(JSON.stringify(msg));
   })
+
+  $("#windowTrigTemp").change(function(){
+    let msg = {
+      "what": "setWindowTrigT",
+      "T": parseFloat(this.value)
+    }
+    ws.send(JSON.stringify(msg));
+  })
+
   //MOTOR (END)
 
   //LEDs

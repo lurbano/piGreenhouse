@@ -6,8 +6,11 @@ import time
 
 class motorU:
 
-    def __init__(self, in1=6, in2=13, in3=19, in4=26,
-                       step_sleep=0.001):
+    def __init__(self, in1=6, in2=13,
+        in3=19, in4=26,
+        step_sleep=0.001,
+        trigT = 30.):
+
         self.step_360 = int(4096)   # number of steps required for 360 degree turn
         self.in1 = in1
         self.in2 = in2
@@ -40,6 +43,8 @@ class motorU:
 
         self.motor_pins = [in1,in2,in3,in4]
 
+        # for greenhouse
+        self.trigT = trigT
 
 
     def cleanup(self):
@@ -86,3 +91,6 @@ class motorU:
 
     async def aCloseWindow(self, direction=True):
         await self.aRotate(direction="clockwise")  #just because that's my current physical design
+
+    def setTrigT(self, T):
+        this.trigT = float(T)

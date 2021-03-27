@@ -89,6 +89,15 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 		self.write_message('{"who": "server", "info": "on"}')
 		#self.oled = oledU(128,32)
 
+		# MOTOR
+		if windowMotor:
+			let msg = {
+				"info": "motorTrigT",
+				"T": windowMotor.trigT
+			}
+			self.write_message(msg)
+		# MOTOR (END)
+
 		# LEDs
 		if ledPix:
 			self.write_message({"info": "LEDsActive", "active": "show", "nPix": nPix})
@@ -97,6 +106,7 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 			self.write_message({"info": "LEDsActive", "active": "hide"})
 			print("LED's Inactive")
 		# LEDs (END)
+
 
 
 	async def on_message(self, message):
@@ -156,10 +166,21 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 					wsCast.write(m);
 				else:
 					m["msg"] = "Closing"
-					wsCast.write(m);
+					wsCast.write(m)
 					await windowMotor.aCloseWindow()
 					m["msg"] = "Closed"
-					wsCast.write(m);
+					wsCast.write(m)
+
+			if msg["what"] == "setWindowTrigT":
+				T = msg["T"]
+				if windowMotor:
+					windowMotor.setTrigT(T)
+					let m = {
+						"info": "motorTrigT",
+						"T": T
+					}
+					wsCast.write(m)
+
 			# MOTOR (END)
 
 			# LEDs
