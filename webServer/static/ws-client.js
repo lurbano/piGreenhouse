@@ -244,6 +244,21 @@ $(document).ready(function(){
     ws.send(JSON.stringify(msg));
   })
 
+  $("#windowCtrlOpen").click(function(){
+    let msg = {
+      "what": "motor",
+      "action": "open"
+    }
+    ws.send(JSON.stringify(msg));
+  })
+  $("#windowCtrlClose").click(function(){
+    let msg = {
+      "what": "motor",
+      "action": "close"
+    }
+    ws.send(JSON.stringify(msg));
+  })
+
   $("#windowTrigTemp").change(function(){
     let msg = {
       "what": "setWindowTrigT",
