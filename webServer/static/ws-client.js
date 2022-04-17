@@ -51,7 +51,7 @@ $(document).ready(function(){
 
         // measure temperature once (button press)
         if (sData.info == 'S-one'){
-          let F = (float(sData.S) * 9 / 5) + 32;
+          let F = (parseFloat(sData.S) * 9 / 5) + 32;
           $("#sensor_measure").html(sData.S + ' ' + sData.units + ` ({F} °F)`) //" °C");
           let now = new Date();
           $("#sensor_time").html(now.toString().split(" GMT")[0]);
