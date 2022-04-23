@@ -78,6 +78,9 @@ class MainHandler(tornado.web.RequestHandler):
 	def get(self):
 		print ("[HTTP](MainHandler) User Connected.")
 		self.render("index.html")
+		# greenhouse
+		await windowMotor.aTControl(sensor)
+
 
 
 class WSHandler(tornado.websocket.WebSocketHandler):
@@ -259,8 +262,6 @@ if __name__ == "__main__":
 		#oled.write(wifi, 2)
 		print(wifi)
 
-		# greenhouse
-		await windowMotor.aTControl(sensor)
 
 
 		main_loop.start()
