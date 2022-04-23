@@ -260,7 +260,7 @@ if __name__ == "__main__":
 		print(wifi)
 
 		# greenhouse
-		windowMotor.aTControl(sensor)
+		await windowMotor.aTControl(sensor)
 
 
 		main_loop.start()
