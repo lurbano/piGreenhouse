@@ -105,7 +105,7 @@ class motorU:
         print(f"Greenhouse Window Control On ({self.trigT})")
         self.TControlOn = True
         while self.TControlOn:
-            T = sensor.read()
+            T = await sensor.aRead_basic()
             if T > self.trigT and self.windowOpen == False:
                 await self.aOpenWindow()
 
