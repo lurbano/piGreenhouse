@@ -107,9 +107,11 @@ class motorU:
         while self.TControlOn:
             T = await sensor.aRead_basic()
             if T > self.trigT and self.windowOpen == False:
+                print("OPENING WINDOW")
                 await self.aOpenWindow()
 
             elif T < self.trigT and self.windowOpen:
+                print("CLOSING WINDOW")
                 await self.aCloseWindow()
 
             await asyncio.sleep(dt)
