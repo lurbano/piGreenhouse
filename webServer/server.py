@@ -181,7 +181,7 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 						"info": "motorTrigT",
 						"T": T
 					}
-					await windowMotor.aTControl(sensor)
+					#await windowMotor.aTControl(sensor)
 					wsCast.write(m)
 
 			# MOTOR (END)
