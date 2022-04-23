@@ -78,8 +78,7 @@ class MainHandler(tornado.web.RequestHandler):
 	def get(self):
 		print ("[HTTP](MainHandler) User Connected.")
 		self.render("index.html")
-		# greenhouse
-		await windowMotor.aTControl(sensor)
+
 
 
 
@@ -182,6 +181,7 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 						"info": "motorTrigT",
 						"T": T
 					}
+					await windowMotor.aTControl(sensor)
 					wsCast.write(m)
 
 			# MOTOR (END)
