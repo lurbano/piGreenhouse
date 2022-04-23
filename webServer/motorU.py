@@ -9,7 +9,7 @@ class motorU:
     def __init__(self, in1=6, in2=13,
         in3=19, in4=26,
         step_sleep=0.001,
-        trigT = 30.):
+        trigT = 32.):
 
         self.step_360 = int(4096)   # number of steps required for 360 degree turn
         self.in1 = in1
@@ -45,6 +45,7 @@ class motorU:
 
         # for greenhouse
         self.trigT = trigT
+        self.windowOpen = False
 
 
     def cleanup(self):
@@ -82,15 +83,33 @@ class motorU:
 
     def openWindow(self):
         self.rotate(direction="counterClockwise") #just because that's my current physical design
+        self.windowOpen = True
 
     async def aOpenWindow(self):
         await self.aRotate(direction="counterClockwise") #just because that's my current physical design
+        self.windowOpen = True
 
     def closeWindow(self, direction=True):
         self.rotate(direction="clockwise")  #just because that's my current physical design
+        self.windowOpen = False
 
     async def aCloseWindow(self, direction=True):
         await self.aRotate(direction="clockwise")  #just because that's my current physical design
+        self.windowOpen = False
 
     def setTrigT(self, T):
         self.trigT = float(T)
+
+    async def aTControl(self, sensor, dt = 60):
+        # sensor is the temperature sensor instance of sensor_T
+        print(f"Greenhouse Window Control On ({self.trigT})")
+        self.TControlOn = True
+        while self.TControlOn:
+            T = sensor.read()
+            if T > self.trigT and self.windowOpen == False:
+                await self.aOpenWindow()
+
+            elif T < self.trigT and self.windowOpen:
+                await self.aCloseWindow()
+
+            await asyncio.sleep(dt)

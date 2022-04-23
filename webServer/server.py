@@ -259,6 +259,9 @@ if __name__ == "__main__":
 		#oled.write(wifi, 2)
 		print(wifi)
 
+		# greenhouse
+		windowMotor.aTControl(sensor)
+
 
 		main_loop.start()
 
