@@ -1,7 +1,7 @@
 # piGreenhouse (based off of [piSensor](https://github.com/lurbano/piSensors))
 Using a Raspberry Pi to:
 1) Monitor Temperature: with a DS18B20 temperature sensor using 1Wire
-2) Open and close a vent: using a 28BYJ-48 Stepper Motor & ULN2003 driver
+2) Open and close a vent: using a 28BYJ-48 Stepper Motor & ULN2003 driver 
 
 * Author: Lensyl Urbano
 * https://montessorimuddle.org
